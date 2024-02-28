@@ -1,25 +1,18 @@
 package mzaba.subscription.rest.service.controller;
 
-import mzaba.subscription.rest.domain.dto.UserRequestDto;
-import mzaba.subscription.rest.domain.dto.UserResponseDto;
+import mzaba.subscription.rest.domain.dto.SubscriptionRequestDto;
+import mzaba.subscription.rest.domain.dto.SubscriptionResponseDto;
 
-public class ServiceController {
 
-    public UserResponseDto createUser(UserRequestDto userRequest){
-        return null;
-    }
+public interface ServiceController {
 
-    public UserResponseDto updateUser(UserRequestDto userRequest){
-        return null;
-    }
+    SubscriptionResponseDto createSubscription(SubscriptionRequestDto subscriptionRequest);
 
-    public void deleteUser(Long userId){}
+    SubscriptionResponseDto updateSubscription(SubscriptionRequestDto subscriptionRequest);
 
-    public UserResponseDto getUser(Long userId){
-        return null;
-    }
+    void deleteSubscription(Long subscriptionId);
 
-    public UserResponseDto getAllUser(){
-        return null;
-    }
+    SubscriptionResponseDto getSubscription(Long subscriptionId);
+
+    SubscriptionResponseDto getAllSubscriptions();
 }
