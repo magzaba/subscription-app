@@ -1,17 +1,30 @@
 package mzaba.subscription.rest.domain.model;
 
 
+import lombok.Getter;
+import lombok.Setter;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.time.LocalDate;
 
 
+@Entity
+@Getter
+@Setter
 public class User {
 
-    Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
-    String name;
+    private String name;
 
-    String surname;
+    private String surname;
 
-    LocalDate birthday;
+    private LocalDate birthday;
 }
+
+
