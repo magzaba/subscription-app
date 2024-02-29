@@ -2,17 +2,20 @@ package mzaba.subscription.rest.service.controller;
 
 import mzaba.subscription.rest.domain.dto.SubscriptionRequestDto;
 import mzaba.subscription.rest.domain.dto.SubscriptionResponseDto;
+import org.springframework.http.ResponseEntity;
+
+import java.util.List;
 
 
 public interface ServiceController {
 
-    SubscriptionResponseDto createSubscription(SubscriptionRequestDto subscriptionRequest);
+    ResponseEntity<SubscriptionResponseDto> createSubscription(SubscriptionRequestDto subscriptionRequest);
 
-    SubscriptionResponseDto updateSubscription(SubscriptionRequestDto subscriptionRequest);
+    ResponseEntity<SubscriptionResponseDto>  updateSubscription(SubscriptionRequestDto subscriptionRequest);
 
-    void deleteSubscription(Long subscriptionId);
+    ResponseEntity<SubscriptionResponseDto>  deleteSubscription(Long subscriptionId);
 
-    SubscriptionResponseDto getSubscription(Long subscriptionId);
+    ResponseEntity<SubscriptionResponseDto>  getSubscription(Long subscriptionId);
 
-    SubscriptionResponseDto getAllSubscriptions();
+    ResponseEntity<List<SubscriptionResponseDto>>  getAllSubscriptions();
 }

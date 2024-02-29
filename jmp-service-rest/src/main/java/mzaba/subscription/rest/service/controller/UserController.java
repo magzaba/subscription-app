@@ -2,11 +2,14 @@ package mzaba.subscription.rest.service.controller;
 
 import mzaba.subscription.rest.domain.dto.UserRequestDto;
 import mzaba.subscription.rest.domain.dto.UserResponseDto;
+import org.springframework.http.ResponseEntity;
+
+import java.util.List;
 
 public interface UserController {
-    UserResponseDto createUser(UserRequestDto userRequestDto);
-    UserResponseDto updateUser(UserRequestDto userRequestDto);
-    void deleteUser(Long userId);
-    UserResponseDto getUser(Long userId);
-    UserResponseDto getAllUsers();
+    ResponseEntity<UserResponseDto> createUser(UserRequestDto userRequestDto);
+    ResponseEntity<UserResponseDto> updateUser(UserRequestDto userRequestDto);
+    ResponseEntity<UserResponseDto> deleteUser(Long userId);
+    ResponseEntity<UserResponseDto> getUser(Long userId);
+    ResponseEntity<List<UserResponseDto>>  getAllUsers();
 }
