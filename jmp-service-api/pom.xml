@@ -10,12 +10,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>jmp-service-api</artifactId>
+
     <dependencies>
         <dependency>
             <groupId>mzaba</groupId>
             <artifactId>jmp-dto</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 

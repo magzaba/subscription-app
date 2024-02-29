@@ -15,22 +15,24 @@
 		<version>2.7.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+
 	<groupId>mzaba</groupId>
 	<artifactId>subscription-app</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>SubscriptionRestApp</name>
 	<description>Demo REST application</description>
+
 	<properties>
 		<java.version>11</java.version>
 		<start-class>mzaba.subscription.rest.SubscriptionRestApplication</start-class>
 		<spring-boot.repackage.skip>true</spring-boot.repackage.skip>
 	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -52,14 +54,6 @@
 	</dependencies>
 
 	<build>
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-maven-plugin</artifactId>
-				</plugin>
-			</plugins>
-		</pluginManagement>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
