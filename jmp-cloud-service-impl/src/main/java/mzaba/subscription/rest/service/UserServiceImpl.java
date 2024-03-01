@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements UserServiceApi {
 
     private UserRepository userRepository;
     private UserRequestDtoToUserConverter userRequestDtoToUserConverter;
@@ -40,10 +40,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserResponseDto deleteUser(Long userId) {
-        var user = getUserByIdFromRepo(userId);
+    public void deleteUser(Long userId) {
+        getUserByIdFromRepo(userId);
         userRepository.deleteById(userId);
-        return userToUserResponseDtoConverter.convert(user);
     }
 
     @Override
@@ -55,7 +54,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<UserResponseDto> getAllUsers() {
         var users = userRepository.findAll();
-        return users.stream().map(user -> userToUserResponseDtoConverter.convert(user)).collect(Collectors.toList());
+        return users
+                .stream()
+                .map(user -> userToUserResponseDtoConverter.convert(user))
+                .collect(Collectors.toList());
     }
 
     User getUserByIdFromRepo(Long userId) {

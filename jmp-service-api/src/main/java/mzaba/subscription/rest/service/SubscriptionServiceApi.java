@@ -5,13 +5,13 @@ import mzaba.subscription.rest.domain.dto.SubscriptionResponseDto;
 
 import java.util.List;
 
-public interface SubscriptionService {
+public interface SubscriptionServiceApi {
 
     SubscriptionResponseDto createSubscription(SubscriptionRequestDto subscriptionRequest);
 
     SubscriptionResponseDto updateSubscription(SubscriptionRequestDto subscriptionRequest);
 
-    SubscriptionResponseDto deleteSubscription(Long subscriptionId);
+    void deleteSubscription(Long subscriptionId);
 
     SubscriptionResponseDto getSubscriptionById(Long subscriptionId);
 

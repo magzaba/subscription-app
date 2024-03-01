@@ -5,10 +5,10 @@ import mzaba.subscription.rest.domain.dto.UserResponseDto;
 
 import java.util.List;
 
-public interface UserService {
+public interface UserServiceApi {
     UserResponseDto createUser(UserRequestDto userRequestDto);
     UserResponseDto updateUser(UserRequestDto userRequestDto);
-    UserResponseDto deleteUser(Long userId);
+    void deleteUser(Long userId);
     UserResponseDto getUserById(Long userId);
     List<UserResponseDto> getAllUsers();
 }

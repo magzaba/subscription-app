@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
-public class SubscriptionServiceImpl implements SubscriptionService{
+public class SubscriptionServiceImpl implements SubscriptionServiceApi {
 
     private SubscriptionRepository subscriptionRepository;
     private SubscriptionRequestDtoToSubscriptionConverter requestDtoToEntityConverter;
@@ -43,10 +43,9 @@ public class SubscriptionServiceImpl implements SubscriptionService{
     }
 
     @Override
-    public SubscriptionResponseDto deleteSubscription(Long subscriptionId) {
-        var subscription = getSubscriptionByIdFromRepo(subscriptionId);
+    public void deleteSubscription(Long subscriptionId) {
+        getSubscriptionByIdFromRepo(subscriptionId);
         subscriptionRepository.deleteById(subscriptionId);
-        return entityToResponseDtoConverter.convert(subscription);
     }
 
     @Override
@@ -58,7 +57,10 @@ public class SubscriptionServiceImpl implements SubscriptionService{
     @Override
     public List<SubscriptionResponseDto> getAllSubscriptions() {
         var subscriptions = subscriptionRepository.findAll();
-        return subscriptions.stream().map(subscription -> entityToResponseDtoConverter.convert(subscription)).collect(Collectors.toList());
+        return subscriptions
+                .stream()
+                .map(subscription -> entityToResponseDtoConverter.convert(subscription))
+                .collect(Collectors.toList());
     }
 
     private Subscription getSubscriptionByIdFromRepo(Long subscriptionId){
